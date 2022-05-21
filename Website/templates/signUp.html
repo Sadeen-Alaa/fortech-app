@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="loginform rogan-hero-section rogan-hero-three pt-300 pb-350 md-pt-200 md-pb-130 pos-r container w-80">
+    <div class="card">
+        <div class="card-body">
+            {% if msg %}
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                {{msg}}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            {%endif%}
+            <form action="signup" method="POST">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="inputFirstName">First Name</label>
+                    <input type="text" class="form-control" id="inputFirstName" placeholder="First Name"
+                        name="firstName">
+                </div>
+                <div class="form-group">
+                    <label for="inputLastName">Last Name</label>
+                    <input type="text" class="form-control" id="inputLastName" placeholder="Last Name" name="lastName">
+                </div>
+                <div class="form-group">
+                    <label for="inputPhone">Phone</label>
+                    <input type="tel" class="form-control" id="inputPhone" placeholder="Phone" name="phone">
+                </div>
+                <div class="form-group">
+                    <label for="inputEmail">Email address</label>
+                    <input type="email" class="form-control" id="inputEmail" placeholder="Enter email" name="email">
+                </div>
+                <div class="form-group">
+                    <label for="inputPassword">Password</label>
+                    <input type="password" class="form-control" id="inputPassword" placeholder="Password"
+                        name="password">
+                </div>
+                <div class="form-group">
+                    <label for="inputPassword">Confirm Password</label>
+                    <input type="password" class="form-control" id="inputconfirmPassword" placeholder="Confirm Password"
+                        name="confirmpassword">
+                </div>
+
+                <button type="submit" class="btn bg-main color-white">Signup</button>
+                <div class="py-2 text-center">
+                    Already have an Account?
+                    <a href="signin">
+                        Login
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{%endblock%}

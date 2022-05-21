@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+
+
+
+
+<!--
+			=============================================
+				Promo Code
+			==============================================
+			-->
+
+
+
+<br><br><br><br><br><br><br>
+
+<!--
+			=============================================
+				Shop Details
+			==============================================
+			-->
+<div class="shop-details pb-150 md-pb-120">
+	<div class="container">
+		<div class="procuct-details">
+			<div class="row">
+				<div class="col-md-6 col-xs-12">
+					<div class="tab-content">
+						<div id="menu0" class="tab-pane fade show active"><img src="{{ProductsGet.image}}" alt=""></div>
+					</div>
+				</div>
+
+				<div class="col-md-6 col-xs-12">
+
+					<div class="product-info">
+						<h3 class="product-name">{{ProductsGet.name}}</h3>
+						<strong class="price">L.E {{ProductsGet.price}}</strong>
+						<p>Category : {{ProductsGet.category}}</p>
+						<p>Description : {{ProductsGet.description}}</p>
+						<div class="customize-order d-sm-flex align-items-top">
+							<form method="POST" type="POST" class="checkout-form" role="form">
+								{% csrf_token %}
+								<div class="row">
+									<div class="col-md-6"><input value="1" name='Quantity' id='Quantity' type="number"
+											placeholder="Write your Quantity" class="single-input-wrapper"></div>
+								</div> <!-- /.row -->
+								<div>
+									<button type="submit" class="theme-button-three">ADD TO CART</button>
+								</div>
+							</form> <!-- /.checkout-form -->
+						</div> <!-- /.customize-order -->
+
+
+
+					</div> <!-- /.product-info -->
+				</div> <!-- /.col- -->
+
+			</div> <!-- /.row -->
+		</div> <!-- /.procuct-details -->
+
+	</div> <!-- /.container -->
+</div> <!-- /.shop-page -->
+
+
+{% endblock content %}

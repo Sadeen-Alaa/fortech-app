@@ -1,0 +1,28 @@
+{% load static %}
+<div class="card my-2">
+    <img class="card-img-top border-bottom" src="{{product.image}}" alt="Card image cap">
+    <div class="card-body px-1 ">
+        <h4 class="card-title text-center">{{product.name}}</h4>
+        <h5 class="card-text color-primary py-1 text-center">{{product.price}}<span>EGP</span></h5>
+        <h4 class="card-text text-muted text-center">{{product.category}}</h4>
+
+    </div>
+    <div class="text-center pt-3 pb-4 container d-flex justify-content-center">
+        <!-- <a href='product/' class="rounded-circle px-2 mx-2 bg-main p-2 d-flex color-white align-items-center">
+            <img src="{%static '/images/icon/bag-add-outline.svg'%}" width="30" height="30" class="button-custom">
+            <span class="show-on-hover ">
+                cart
+            </span>
+        </a> -->
+        <a href="product{{product.id}}"
+            class="rounded-circle px-2 mx-2 bg-myprimary p-2 d-flex color-white align-items-center">
+            <span class="show-on-hover ">
+                View
+            </span>
+            <img src="{%static '/images/icon/open-outline.svg'%}" width="30" height="30" class="button-custom">
+        </a>
+
+    </div>
+    <div class="bg-main loading">
+    </div>
+</div>

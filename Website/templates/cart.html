@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+
+
+<div class="full-width-container pt-100 pb-180 md-pt-100 md-pb-120">
+
+	<!-- SHOP SHOWCASE -->
+	<div class="product-showcase">
+		<div class="container">
+			<div class="d-flex align-items-center">
+				<h2>Cart</h2>
+				{%if cartNo%}
+				<a href="/checkout" class="theme-button-three color-white ml-auto" style="height: fit-content;">Go To
+					Checkout</a>
+				{%endif%}
+			</div>
+			{% if cart.cart %}
+			<div class="row">
+				{% for docs in cart.cart %}
+				<div class="col-12  col-md-4 col-lg-3 px-1">
+					<div class="card my-2">
+						<img class="card-img-top border-bottom" src="{%static '/images/01.png'%}" alt="Card image cap">
+						<div class="card-body px-1 ">
+							<h3 class="card-title text-center">{{docs.ProductName}}</h3>
+							<h4 class="card-text color-primary py-1 text-center">{{docs.Price}}<span>EGP</span></h4>
+							<div class="text-center h5">
+								Qt:{{docs.Quantity}}
+							</div>
+							<div class="text-center text-muted card-text">
+								Total:{{docs.total}}
+							</div>
+
+						</div>
+
+						<div class="text-center pt-3 pb-4 container d-flex justify-content-center">
+							<a href='productadd{{docs.ProductID}}'
+								class="rounded-circle px-2 mx-2 bg-main p-2 d-flex color-white align-items-center">
+								<img src="{%static '/images/icon/add-outline.svg'%}" width="30" height="30"
+									class="button-custom">
+								<span class="show-on-hover ">
+									Add
+								</span>
+							</a>
+
+						</div>
+						<a href="productremove{{docs.ProductID}}" class=" align-items-center py-3 d-flex">
+
+							Remove
+							</span>
+
+						</a>
+						<div class="bg-main loading">
+						</div>
+					</div>
+				</div>
+				{% endfor %}
+			</div>
+			{% else %}
+			<div class="my-4 text-center">
+				Your Cart is empty go to <a href="products">
+					products
+				</a> page
+			</div>
+			{%endif%}
+
+		</div>
+
+	</div> <!-- /.row -->
+</div> <!-- /.product-showcase -->
+
+
+
+
+{% endblock content %}

@@ -1,0 +1,240 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="keywords" content="Food Ordering platform for Nile University Events">
+	<meta name="author" content="creativegigs">
+	<meta name="description" content="Food Ordering platform for Nile University Events">
+	<meta name='og:image' content="{% static 'css/images01.png' %}">
+
+	<!-- For IE -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<!-- For Resposive Device -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- For Window Tab Color -->
+	<!-- Chrome, Firefox OS and Opera -->
+	<meta name="theme-color" content="#fff">
+	<!-- Windows Phone -->
+	<meta name="msapplication-navbutton-color" content="#fff">
+	<!-- iOS Safari -->
+	<meta name="apple-mobile-web-app-status-bar-style" content="#fff">
+	<title>Fortech</title>
+	<!-- Favicon -->
+	<link rel="icon" type="image/png" sizes="56x56" href="{% static 'images/logo1.png'%}">
+
+	<!-- Main style sheet -->
+	<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+
+	<!-- responsive style sheet -->
+	<link rel="stylesheet" type="text/css" href="{% static 'css/responsive.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+
+	<!-- Fix Internet Explorer ______________________________________-->
+	<!--[if lt IE 9]>
+			<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+			<script src="vendor/html5shiv.js"></script>
+			<script src="vendor/respond.js"></script>
+		<![endif]-->
+</head>
+
+<body>
+	<div class="main-page-wrapper">
+
+		<!-- ===================================================
+				Loading Transition
+			==================================================== -->
+		<!-- Preloader -->
+		<section>
+			<div id="preloader">
+				<div id="ctn-preloader" class="ctn-preloader d-flex">
+					<div class="animation-preloader ">
+						<div class="icon"><img width="550" src="{% static 'images/logo1.png'%}" alt=""></div>
+
+						<div class="txt-loading">
+							<span data-text-preloader="F" class="letters-loading">
+								F
+							</span>
+							<span data-text-preloader="O" class="letters-loading">
+								O
+							</span>
+							<span data-text-preloader="R" class="letters-loading">
+								R
+							</span>
+							<span data-text-preloader="-" class="letters-loading">
+								-
+							</span>
+							<span data-text-preloader="T" class="letters-loading">
+								T
+							</span>
+							<span data-text-preloader="E" class="letters-loading">
+								E
+							</span>
+							<span data-text-preloader="C" class="letters-loading">
+								C
+							</span>
+							<span data-text-preloader="H" class="letters-loading">
+								H
+							</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+
+		<!-- 
+			=============================================
+				Theme Main Menu
+			============================================== 
+			-->
+		<div class="theme-main-menu px-0 theme-menu-two main-p-color sticky-menu py-0">
+			<nav class="navbar container py-sm-2 py-md-0 navbar-expand-lg navbar-light ">
+				<a href="/" class="navbar-brand"><img src="{% static 'images/logo2.png'%}" width="100" height="40"></a>
+				<button class="" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+					aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse py-3" id="navbarNavAltMarkup">
+
+					<div class="navbar-nav">
+						<a class="list-nav nav-item nav-link" href="/">Home</a>
+						<a class="list-nav nav-item nav-link" href="/categories">Categories</a>
+						<a class="list-nav nav-item nav-link" href="/products">Products</a>
+
+						<form class="d-flex align-items-center justify-content-end my-md-0" method="post"
+							action="products">
+							{% csrf_token %}
+							<div class=" input-group my-auto search theme-btn .contact-button">
+
+								<input type="search" name="search" class="border-none form-control">
+								<div class="input-group-append">
+									<button class="btn border-none" type=" submit"><img
+											src="{%static '/images/icon/search-outline.svg'%}" width="24"
+											height="24"></button>
+								</div>
+							</div>
+
+						</form>
+					</div>
+
+					<div class="col-12 col-md-4 right-content ml-auto order-lg-3 d-flex flex-end">
+						{% if request.session.email%}
+						<a class="list-nav nav-item nav-link ml-auto mx-2" href="/cart">
+							<img class="" width="30" height="30" src="{% static 'images/icon/cart-outline.svg'%}" />
+							<span href="#" class="badge badge-primary rounded-circle">{{cartNo}}</span>
+						</a>
+						<a href="/logout" class=" theme-btn line-button-one button-rose contact-button button-white-bg">
+							Logout
+						</a>
+						{%else%}
+						<a href="/signin"
+							class=" ml-auto theme-btn line-button-one button-rose contact-button button-white-bg">
+							Login | SignUp
+						</a>
+						{%endif%}
+
+					</div>
+			</nav>
+
+
+		</div>
+
+	</div> <!-- /.theme-main-menu -->
+
+
+
+	<!-- 
+			=============================================
+				Theme Main Banner One
+			============================================== 
+-->
+	{% block content %}{% endblock content %}
+
+
+	<!-- 			=====================================================
+				Footer
+			=====================================================
+			-->
+	<footer class="theme-footer-one main-p-color pt-130">
+		<div class="top-footer">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-3 col-sm-6 col-12 footer-about-widget">
+						<a href="/" class="logo">Fortech</a>
+
+						<a href="{{email}}" class="email">{{email}}</a>
+						<a href="tel:{{phone}}" class="phone">{{phone}}</a>
+
+					</div> <!-- /.about-widget -->
+					<div class="col-lg-3 col-lg-3 col-sm-6 col-12 footer-list">
+						<h5 class="footer-title">Services</h5>
+						<ul>
+							<li>{{services}}</li>
+						</ul>
+
+					</div> <!-- /.footer-recent-post -->
+					<div class="col-lg-3 col-sm-6 col-12 footer-list">
+						<h5 class="footer-title">About us</h5>
+						<ul>
+							<li><a href="about-standard.html">About us</a></li>
+						</ul>
+					</div> <!-- /.footer-list -->
+					<div class="col-lg-3 col-lg-2 col-sm-6 col-12 footer-information">
+						<h5 class="footer-title">Our Address</h5>
+						{{address}}
+						<ul>
+							<li><a href="{{facebook}}"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+
+						</ul>
+					</div>
+				</div> <!-- /.row -->
+			</div> <!-- /.container -->
+		</div> <!-- /.top-footer -->
+
+	</footer> <!-- /.theme-footer-one -->
+
+
+
+
+	<!-- Scroll Top Button -->
+	<button class="scroll-top tran3s">
+		<i class="fa fa-angle-up" aria-hidden="true"></i>
+	</button>
+
+
+
+
+	<!-- Optional JavaScript _____________________________  -->
+
+	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	<!-- jQuery -->
+	<script src="static/vendor/jquery.2.2.3.min.js"></script>
+	<!-- Popper js -->
+	<script src="static/vendor/popper.js/popper.min.js"></script>
+	<!-- Bootstrap JS -->
+	<script src="static/vendor/bootstrap/js/bootstrap.min.js"></script>
+	<!-- menu  -->
+	<script src="static/vendor/mega-menu/assets/js/custom.js"></script>
+	<!-- AOS js -->
+	<script src="static/vendor/aos-next/dist/aos.js"></script>
+	<!-- WOW js -->
+	<script src="static/vendor/WOW-master/dist/wow.min.js"></script>
+	<!-- owl.carousel -->
+	<script src="static/vendor/owl-carousel/owl.carousel.min.js"></script>
+	<!-- ajaxchimp -->
+	<script src="static/vendor/ajaxchimp/jquery.ajaxchimp.min.js"></script>
+	<!-- Fancybox -->
+	<script src="static/vendor/fancybox/dist/jquery.fancybox.min.js"></script>
+	<!-- Tilt js -->
+	<script src="static/vendor/tilt.jquery.js"></script>
+
+
+	<!-- Theme js -->
+	<script src="static/js/theme.js"></script>
+	</div> <!-- /.main-page-wrapper -->
+</body>
+
+</html>

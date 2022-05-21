@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+{% csrf_token %}
+<div class="rogan-hero-section rogan-hero-three pt-100 pb-350 md-pt-100 md-pb-130 pos-r">
+
+    <div class="container">
+        <div class="main-wrapper pos-r">
+
+            <h2>
+                Categories
+            </h2>
+            <hr />
+            <div class="row">
+                {% for category in categories %}
+
+                <div class="col-6 col-md-4 col-sm-3 my-2">
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="{{category.img}}" onerror="this.src='https://dummyimage.com/640x360/eee/aaa'" />
+                        </div>
+                        <div class="card-body">
+                            <a href="products{{category.name}}">
+                                {{category.name}}
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div> <!-- /.main-wrapper -->
+    </div> <!-- /.container -->
+
+</div> <!-- /.rogan-hero-section -->
+
+
+
+{% endblock content %}

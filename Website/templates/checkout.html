@@ -1,0 +1,101 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+
+
+
+<!-- 
+			=============================================
+				Promo Code
+			============================================== 
+			-->
+<div>
+	<br><br><br><br><br><br><br>
+
+</div>
+
+<!-- 
+			=============================================
+				CheckOut Page
+			============================================== 
+			-->
+<div class="checkout-section pb-200 md-pb-120">
+	<div class="container">
+		<form method="POST" type="POST" class="checkout-form" role="form">
+			{% csrf_token %}
+			<div class="row">
+				<div class="col-lg-7">
+					<h2 class="main-title">CheckOut</h2>
+					<div class="user-profile-data">
+						<div class="row">
+							<div class="col-12">
+								<div class="other-note-area">
+									<p>Order Note (Optional)</p>
+									<textarea name='OrderNote' id='OrderNote'></textarea>
+								</div> <!-- /.other-note-area -->
+								<br>
+								<div class="form-group">
+									<label for="exampleaddress">Address</label>
+									<input required name="address" type="text" class="form-control" id="exampleaddress"
+										aria-describedby="addressHelp" placeholder="Enter address">
+								</div>
+								<div class="form-group">
+									<label for="exampleInputcity1">City</label>
+									<input required type="text" class="form-control" id="exampleInputcity1"
+										placeholder="city" name="city">
+								</div>
+
+							</div>
+						</div> <!-- /.row -->
+					</div> <!-- /.user-profile-data -->
+				</div> <!-- /.col- -->
+				<div class="col-lg-5">
+					<div class="order-confirm-sheet">
+						<h2 class="main-title">Order Details</h2>
+						<div class="order-review">
+							<table class="product-review">
+								<tbody>
+									{% for usersdocs in usersdocs.cart %}
+									<tr>
+										<th>
+											<span>{{usersdocs.ProductName}}</span>
+										</th>
+										<td><span>L.E {{usersdocs.Price}} x{{usersdocs.Quantity}}</span></td>
+									</tr>
+									{% endfor %}
+									<tr>
+										<th>
+											<span>Not including shipping!</span>
+										</th>
+
+									</tr>
+								</tbody>
+								<tfoot>
+									<tr>
+										<th><span>Total</span></th>
+										<td><span>L.E {{usersdocs.total}}</span></td>
+									</tr>
+								</tfoot>
+							</table> <!-- /.product-review -->
+							<input type="checkbox" class="my-2" required> <label class="my-3">
+								I agreee on Terms and Conditions.
+							</label>
+							<button type="submit" class="theme-button-three">Place Order</button>
+
+
+						</div> <!-- /.order-review -->
+					</div> <!-- /.order-confirm-sheet -->
+				</div>
+			</div> <!-- /.row -->
+		</form> <!-- /.checkout-form -->
+	</div> <!-- /.container -->
+</div> <!-- /.checkout-section -->
+
+
+
+
+
+
+
+{% endblock content %}

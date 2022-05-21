@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+
+<div >
+    <br><br><br><br><br><br><br>
+    
+</div>
+<div class="checkout-section pb-200 md-pb-120">
+    <div class="container">
+        <form method="POST" type="POST" class="checkout-form" role="form">
+            {% csrf_token %}
+            <div class="row">
+                <div class="col-lg-7">
+                    <h2 class="main-title">Quick SignUp</h2>
+                    <div class="user-profile-data">
+                        <div class="row">
+                            <div class="col-md-6"><input name='firstName' id='firstName' type="text" placeholder="First Name*" class="single-input-wrapper" required></div>
+                            <div class="col-md-6"><input name='lastName' id='lastName' type="text" placeholder="Last Name*" class="single-input-wrapper" required></div>									
+                            <div class="col-lg-6"><input name='Email' id='Email' type="email" placeholder="Email Address*" class="single-input-wrapper" required></div>
+                            <div class="col-lg-6"><input name='PhoneNumber' id='PhoneNumber' type="text" placeholder="Phone Number*" class="single-input-wrapper" required></div>
+                            <div class="col-12">
+                            </div>
+                            <div class="col-12">
+                                <br>
+                                <button  type="submit" class="theme-button-three">Register</button>
+
+                            </div>
+                        </div> <!-- /.row -->
+                    </div> <!-- /.user-profile-data -->
+                </div> <!-- /.col- -->
+                
+            </div> <!-- /.row -->
+        </form> <!-- /.checkout-form -->
+    </div> <!-- /.container -->
+</div> <!-- /.checkout-section -->
+
+
+{% endblock content %}
+
+
+
+
+
