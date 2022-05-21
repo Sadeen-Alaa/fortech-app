@@ -306,6 +306,9 @@
     --p-orange: #ff8618;
     --cyan: #1aceff;
     --redOne: #2b44d3;
+    --main-color: #1f69b2;
+    --primary-color: #df1b25;
+    --secondary-color: #7d8081
 }
 
 .ctn-preloader .animation-preloader .spinner {

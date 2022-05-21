@@ -1,0 +1,194 @@
+/*
+#main-color: #1f69b2
+#primary-color: #df1b25
+#secondary-color: #7d8081
+*/
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech&display=swap');
+* {
+    font-family: 'Share Tech', sans-serif !important;
+}
+
+:root {
+    --text-color: #8a919c;
+    --text-light: #c0c0c9;
+    --text-dark: #313131;
+    --heading: #2A2A2A;
+    --p-rose: #2b44d3;
+    --rose-gr-bg: linear-gradient( -90deg, rgb(84, 46, 221) 0%, rgb(35, 35, 41) 100%);
+    --rose-gr-reverse: linear-gradient( -90deg, rgb(50, 29, 236) 0%, rgb(76, 70, 94) 100%);
+    --p-green: #0de49d;
+    --p-orange: #ff8618;
+    --cyan: #1aceff;
+    --redOne: #2b44d3;
+    --main-color: #1f69b2;
+    --primary-color: #df1b25;
+    --secondary-color: #7d8081
+}
+.color-white {
+    color: white;
+}
+
+.button-custom {
+    cursor: pointer;
+    transition: all ease-in-out .2s !important;
+}
+button,a {
+    transition: all .2s ease-in-out !important;
+    justify-content: center;
+    align-items: center;
+}
+.show-on-hover {
+
+    transition: all ease-in-out .4s;
+    width: 0px;
+    overflow: hidden;
+    height: 0px;
+}
+a:hover .show-on-hover , button:hover .show-on-hover{
+    width: 90px;
+    height: 30px;
+}
+a:hover, button:hover {
+    border-radius: 20px !important;
+}
+a:hover .rounded-circle {
+    border-radius: 0%;
+}
+.button-custom:hover {
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;}
+.bg-main, .bg-main:hover {
+    background-color: var(--main-color) !important;
+}
+.color-white:hover{
+    color: white;
+}
+.bg-myprimary, .bg-myprimary:hover {
+    background-color: var(--primary-color) !important;
+}
+button:hover {
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+
+}
+
+.color-main {
+    color: var(--main-color);
+}
+.color-primary {
+    color: var(--primary-color);
+}
+button.scroll-top.tran3s {
+    background: var(--main-color);
+}
+::-webkit-scrollbar-thumb {
+    background: var(--main-color) !important;
+    border-radius: 30px;
+}
+img {
+    object-fit: cover;
+}
+.card {
+    transition: all ease-in-out 0.5s;
+    box-shadow: rgba(50, 50, 105, 0.15) 0px 2px 5px 0px, rgba(0, 0, 0, 0.05) 0px 1px 1px 0px;
+}
+
+.card:hover {
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+.card .loading {
+    
+    width: 0.001px;
+    opacity: 0;
+    height: 1px;
+    transition: 0.3s ease-in-out;
+    margin-left: auto;
+    margin-right: auto;
+}
+.card:hover .loading {
+    opacity: 1;
+    width: 100%;
+
+}
+@media (min-width: 992px) {
+    .loginform.w-80 {
+        max-width: 50% !important;
+    }
+    .sticky-menu.fixed {
+    
+     background-color: rgba(255, 255, 255, .15);  
+     backdrop-filter: blur(5px);
+    }
+    .navbar-toggler-icon {
+        display: none;
+    }
+}
+.nav-link {
+    width: fit-content;
+}
+.sticky-menu * {
+    color:#7d8081 !important;
+}
+.list-nav {
+    position: relative;
+}
+.list-nav::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0; 
+    right: 0; 
+    margin-left: auto; 
+    margin-right: auto; 
+    width: 0;
+    transition: all ease-in-out .3s;
+    height: 1.5px;
+    background-color: #1f69b2;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+.list-nav:hover::after {
+    width: 100%;
+}
+.theme-main-menu .contact-button.button-white-bg:hover {
+    color: white !important;
+}
+.theme-main-menu .contact-button.button-white-bg::before {
+    background-color: #1f69b2;
+}
+.badge {
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: #fff !important;
+    background-color: var(--primary-color);
+    display: flex;
+    justify-content: center;
+    text-align: center !important;
+    align-items: center !important;
+    align-content: center;
+    height: 20px;
+    width: auto;
+    aspect-ratio: 1;
+}
+@media (max-width: 992px) {
+    .search {
+        margin: 15px 0  !important;
+        margin-left: 0 !important;
+    }
+
+}
+.search {
+    background: #fff;
+    border: none !important;
+    padding: 0 !important;
+    margin-left: 20px !important;
+    border-radius: .25rem;
+    overflow: hidden;
+    width: 300px;
+    box-shadow: 0px 5px 20px 0px rgb(0 0 0 / 10%) !important;
+}
+.search input {
+    padding-left: 15px;
+}
+.search input:focus {
+    box-shadow: none !important;
+    border: none;
+}

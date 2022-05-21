@@ -12,7 +12,7 @@
     
     
     $(document).on ('ready', function (){
-
+      $('.carousel').carousel()
         $.fn.visible = function(partial) {
             var $t            = $(this),
                 $w            = $(window),
